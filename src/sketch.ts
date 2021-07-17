@@ -1,1 +1,1 @@
-export { spirograph as sketch } from "./sketches";
+export { holocrux as sketch } from "./sketches";
