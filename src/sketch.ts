@@ -1,1 +1,1 @@
-export { holocrux as sketch } from "./sketches";
+export { jewelOfDrax as sketch } from "./sketches";

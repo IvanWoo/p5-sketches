@@ -1,5 +1,4 @@
 import type p5 from "p5";
-import { range } from "@thi.ng/iterators";
 
 // https://openprocessing.org/sketch/478216
 export const sketch = (p: p5) => {
