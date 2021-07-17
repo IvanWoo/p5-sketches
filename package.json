@@ -3,11 +3,13 @@
   "author": "Yifan Wu",
   "version": "0.0.1",
   "license": "MIT",
+  "type": "module",
   "scripts": {
     "clean": "rimraf .cache build",
     "build": "snowpack build",
     "start": "snowpack dev --reload",
-    "lint": "prettier --write src/**/*.ts"
+    "lint": "prettier --write src/**/*.ts",
+    "new": "zx ./scripts/new.js"
   },
   "dependencies": {
     "@thi.ng/iterators": "^5.1.65",
@@ -19,6 +21,7 @@
     "prettier": "^2.3.2",
     "rimraf": "^3.0.2",
     "snowpack": "^3.6.2",
-    "typescript": "^4.3.4"
+    "typescript": "^4.3.4",
+    "zx": "^2.0.0"
   }
 }
