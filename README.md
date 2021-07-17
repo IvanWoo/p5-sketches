@@ -1,6 +1,6 @@
-# p5-typescript-starter
+# p5-sketches
 
-yet another p5 typescript starter template leveraging the Snowpack tooling
+personal p5 learning sketches
 
 ## usage
 
