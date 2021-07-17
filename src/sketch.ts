@@ -1,1 +1,1 @@
-export { jewelOfDrax as sketch } from "./sketches";
+export { tree as sketch } from "./sketches";
