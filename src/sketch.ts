@@ -1,1 +1,1 @@
-export { hsb as sketch } from "./sketches";
+export { terrain as sketch } from "./sketches";
