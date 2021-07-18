@@ -1,1 +1,1 @@
-export { mandelbrotSet as sketch } from "./sketches";
+export { hsb as sketch } from "./sketches";
