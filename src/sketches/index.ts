@@ -6,3 +6,4 @@ export { sketch as tree } from "./tree";
 export { sketch as mandelbrotSet } from "./mandelbrotSet";
 export { sketch as hsb } from "./hsb";
 export { sketch as terrain } from "./terrain";
+export { sketch as okazz210715 } from "./okazz210715";
