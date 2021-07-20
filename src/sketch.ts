@@ -1,1 +1,1 @@
-export { okazz210701a as sketch } from "./sketches";
+export { alignmentGrid as sketch } from "./sketches";
