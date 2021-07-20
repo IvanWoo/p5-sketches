@@ -1,7 +1,6 @@
-import "zx";
-import process from "process";
-import path from "path";
-import fs from "fs";
+const process = require("process");
+const path = require("path");
+const fs = require("fs");
 
 const pathOf = name => path.join(__dirname, "..", name);
 const sketchPath = name => path.join(pathOf("src/sketches"), name);
