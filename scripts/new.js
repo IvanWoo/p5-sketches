@@ -23,6 +23,10 @@ export const sketch = (p: p5) => {
     p.draw = () => {
 
     };
+
+    p.keyReleased = () => {
+        if (p.key === "s") p.saveCanvas("sketchScreenshot", "png");
+    };
 };
 
 `;

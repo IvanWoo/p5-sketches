@@ -2,6 +2,8 @@
 
 personal p5 learning sketches
 
+## [sketch gallery](./README-SKETCHES.md)
+
 ## usage
 
 ### setup dev env
@@ -14,5 +16,5 @@ yarn start
 ### create new sketch
 
 ```sh
-yarn new
+yarn new <sketchName>
 ```

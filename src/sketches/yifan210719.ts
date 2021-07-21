@@ -1,7 +1,5 @@
 import type p5 from "p5";
 
-// Marina APOLLONIO
-// http://miriorama.github.io/miriorama-web/#apollonio
 export const sketch = (p: p5) => {
     const width = 800;
     const height = width;

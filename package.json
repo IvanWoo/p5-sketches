@@ -8,11 +8,15 @@
     "build": "snowpack build",
     "start": "snowpack dev --reload",
     "lint": "prettier --write src/**/*.ts",
-    "new": "zx ./scripts/new.js"
+    "new": "zx ./scripts/new.js",
+    "doc:sketches": "ts-node -P tools/tsconfig.json tools/src/readme-sketches.ts"
   },
   "dependencies": {
+    "@thi.ng/idgen": "^0.2.37",
     "@thi.ng/iterators": "^5.1.65",
     "@thi.ng/random": "^2.4.2",
+    "@thi.ng/strings": "^2.1.2",
+    "@thi.ng/text-canvas": "^0.7.10",
     "p5": "^1.4.0"
   },
   "devDependencies": {

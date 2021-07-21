@@ -1,0 +1,17 @@
+{
+    "assetURL": ".",
+    "sketches": [
+        {
+            "name": "yifan210719",
+            "screenshot": "yifan210719.png",
+            "description": "recreate of Marina Apollonio: rotating dizzy semi-3d widget",
+            "reference": "http://miriorama.github.io/miriorama-web/#apollonio"
+        },
+        {
+            "name": "yifan210720",
+            "screenshot": "yifan210720.png",
+            "description": "recreate of Marina Apollonio: neat logo-like design",
+            "reference": "https://www.pinterest.ca/pin/562950022148386156/"
+        }
+    ]
+}
