@@ -9,7 +9,8 @@
     "start": "snowpack dev --reload",
     "lint": "prettier --write src/**/*.ts",
     "new": "zx ./scripts/new.js",
-    "doc:sketches": "ts-node -P tools/tsconfig.json tools/src/readme-sketches.ts"
+    "doc:sketches": "ts-node -P tools/tsconfig.json tools/src/readme-sketches.ts",
+    "asset:optimize": "open -a ImageOptim ./assets/"
   },
   "dependencies": {
     "@thi.ng/idgen": "^0.2.37",
