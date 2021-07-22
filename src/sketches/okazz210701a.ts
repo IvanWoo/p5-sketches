@@ -1,7 +1,7 @@
 import type p5 from "p5";
 import { range } from "@thi.ng/iterators";
 
-import { colorhunt } from "./colorUtils";
+import { colorhunt } from "./utils/color";
 
 interface Shape {
     x: number;

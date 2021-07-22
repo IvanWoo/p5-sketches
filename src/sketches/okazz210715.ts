@@ -2,7 +2,7 @@ import type p5 from "p5";
 import { range } from "@thi.ng/iterators";
 import { weightedRandom } from "@thi.ng/random";
 
-import { colorhunt } from "./colorUtils";
+import { colorhunt } from "./utils/color";
 
 `
 - layout
