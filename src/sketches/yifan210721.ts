@@ -37,7 +37,7 @@ export const sketch = (p: p5) => {
         if (p.key === "s") p.saveCanvas("sketchScreenshot", "png");
     };
 
-    const drawOlympic = (x, y) => {
+    const drawOlympic = (x: number, y: number) => {
         p.translate(x, y);
         const relativePos = [
             // black ring
@@ -58,13 +58,13 @@ export const sketch = (p: p5) => {
         }
     };
 
-    const setStrokeColor = idx => {
+    const setStrokeColor = (idx: number) => {
         let col = p.color(colors[idx % colors.length]);
         col.setAlpha(p.random(50, 70));
         p.stroke(col);
     };
 
-    const drawCircle = (x, y, d) => {
+    const drawCircle = (x: number, y: number, d: number) => {
         shadeCircle(x, y, d);
         // if (d > 30) {
         //     drawCircle(x - d * 0.5, y, d * 0.5);
@@ -72,7 +72,7 @@ export const sketch = (p: p5) => {
         // }
     };
 
-    function shadeCircle(x, y, d) {
+    const shadeCircle = (x: number, y: number, d: number) => {
         let r = d * 0.5;
         let c = p.int(d * baseDotNum);
         let rnd = normal(SYSTEM, 0, normalSigma);
@@ -81,5 +81,5 @@ export const sketch = (p: p5) => {
             let rad = p.random(config) * Math.abs(rnd()) + 1;
             p.point(x + p.cos(ang) * r * rad, y + p.sin(ang) * r * rad);
         }
-    }
+    };
 };
