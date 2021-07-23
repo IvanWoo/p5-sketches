@@ -25,4 +25,5 @@ lerna-debug.log*
 *.d.ts
 *.d.ts.map
 !types.d.ts
+!static.d.ts
 .nyc_output
