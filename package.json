@@ -13,6 +13,7 @@
     "asset:optimize": "open -a ImageOptim ./assets/"
   },
   "dependencies": {
+    "@thi.ng/grid-iterators": "^0.4.37",
     "@thi.ng/idgen": "^0.2.37",
     "@thi.ng/iterators": "^5.1.65",
     "@thi.ng/random": "^2.4.2",

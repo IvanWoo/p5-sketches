@@ -329,6 +329,17 @@
     "@thi.ng/math" "^4.0.2"
     "@thi.ng/vectors" "^6.0.2"
 
+"@thi.ng/grid-iterators@^0.4.37":
+  version "0.4.37"
+  resolved "https://registry.yarnpkg.com/@thi.ng/grid-iterators/-/grid-iterators-0.4.37.tgz#61d025b7ab74d2d441ac7aec7179008ada91badb"
+  integrity sha512-eJ77urdn0skUnrzQl1AUFBXuGS1AMPecT+4fJa6D2zspQRV6ThBkY3HHv5Wdb+fSAMB1w8KBUxvSnpa2qgFpCQ==
+  dependencies:
+    "@thi.ng/arrays" "^0.10.13"
+    "@thi.ng/binary" "^2.2.6"
+    "@thi.ng/morton" "^2.0.42"
+    "@thi.ng/random" "^2.4.2"
+    "@thi.ng/transducers" "^7.7.4"
+
 "@thi.ng/hex@^0.2.7":
   version "0.2.7"
   resolved "https://registry.yarnpkg.com/@thi.ng/hex/-/hex-0.2.7.tgz#eb7c8ac7641a1a63c1d0ca1e0b526c19ed3f28cf"
@@ -364,6 +375,15 @@
   integrity sha512-Zn564aPtu7VsCY1GCDr+OeVnONavxOd1pUEO7ovtuLaLF2EJcNnRAgm9h1xdtOWY3t387cwdd7ZG4y4hDDOxEg==
   dependencies:
     "@thi.ng/api" "^7.1.6"
+
+"@thi.ng/morton@^2.0.42":
+  version "2.0.42"
+  resolved "https://registry.yarnpkg.com/@thi.ng/morton/-/morton-2.0.42.tgz#3c07ccb339fd5005e023e309b8a8272eb9aff401"
+  integrity sha512-xnlpcessegFQ86cyhaTtBhxXH4F6E8zKeUD9IyhY0mtVlCmqlvymH4TucG2w7mPbC21f4NeQVkiGw+Hk8+NpSQ==
+  dependencies:
+    "@thi.ng/api" "^7.1.6"
+    "@thi.ng/binary" "^2.2.6"
+    "@thi.ng/math" "^4.0.2"
 
 "@thi.ng/random@^2.4.2":
   version "2.4.2"
