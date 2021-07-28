@@ -145,3 +145,10 @@ export const colourlovers = [
     ["#655643", "#80BCA3", "#F6F7BD", "#E6AC27", "#BF4D28"],
     ["#00A8C6", "#40C0CB", "#F9F2E7", "#AEE239", "#8FBE00"],
 ];
+
+export const ringers = {
+    white: "#f3f3f3",
+    black: "#292929",
+    red: "#c3433b",
+    yellow: "#f2ca43",
+};

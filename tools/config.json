@@ -30,6 +30,12 @@
             "screenshot": "yifan210723.png",
             "description": "play with @thi.ng/grid-iterators",
             "reference": "https://github.com/thi-ng/umbrella/tree/develop/examples/grid-iterators"
+        },
+        {
+            "name": "yifan210727",
+            "screenshot": "yifan210727.png",
+            "description": "recreate of Ringers #0",
+            "reference": "https://opensea.io/assets/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/13000000"
         }
     ]
 }
