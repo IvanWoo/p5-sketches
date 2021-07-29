@@ -1,5 +1,16 @@
 import type p5 from "p5";
-import { range } from "@thi.ng/iterators";
+import {
+    range,
+    range2d,
+    comp,
+    push,
+    map,
+    transduce,
+    partition,
+    wrapSides,
+    reduce,
+    multiplexObj,
+} from "@thi.ng/transducers";
 
 import { tangents } from "./utils/geom";
 import { ringers } from "./utils/color";
@@ -31,24 +42,6 @@ class Peg {
         this.p.pop();
     }
 
-    connect(peg: Peg): void {
-        let { inner, outer } = tangents(
-            this.x,
-            this.y,
-            this.r,
-            peg.x,
-            peg.y,
-            peg.r
-        );
-        this.drawLines([this.p.random([...inner, ...outer])]);
-    }
-
-    drawLines(lines: any): void {
-        for (let [x1, y1, x2, y2] of lines) {
-            this.p.line(x1, y1, x2, y2);
-        }
-    }
-
     debug(): void {
         this.p.push();
         this.p.noStroke();
@@ -70,6 +63,7 @@ export const sketch = (p: p5) => {
     const margin = unitSpace * 0.3;
 
     let pegs: Peg[] = [];
+    let connections = [2, 3, 7, 11, 15, 12, 9, 8];
 
     p.setup = () => {
         p.createCanvas(width, height);
@@ -79,11 +73,19 @@ export const sketch = (p: p5) => {
         p.strokeWeight(6);
         p.textAlign(p.CENTER, p.CENTER);
 
-        let colors = [...range(rows * cols)].map(_ => ringers.white);
-        for (let blackIdx of [2, 3, 5, 8, 11, 12]) {
-            colors[blackIdx] = ringers.black;
-        }
-        colors[15] = ringers.yellow;
+        let colors = transduce(
+            comp(
+                map(x =>
+                    [2, 3, 5, 8, 11, 12].includes(x)
+                        ? ringers.black
+                        : [15].includes(x)
+                        ? ringers.yellow
+                        : ringers.white
+                )
+            ),
+            push(),
+            range(rows * cols)
+        );
 
         for (let i of range(rows)) {
             for (let j of range(cols)) {
@@ -100,12 +102,32 @@ export const sketch = (p: p5) => {
         for (let peg of pegs) {
             peg.draw();
         }
-        pegs[2].connect(pegs[3]);
-        pegs[3].connect(pegs[15]);
-        pegs[12].connect(pegs[15]);
-        pegs[9].connect(pegs[12]);
-        pegs[9].connect(pegs[8]);
-        pegs[8].connect(pegs[2]);
+        let lines = transduce(
+            comp(
+                map(x => pegs[x]),
+                partition(2, 1),
+                map(([p1, p2]) => {
+                    let { inner, outer } = tangents(
+                        p1.x,
+                        p1.y,
+                        p1.r,
+                        p2.x,
+                        p2.y,
+                        p2.r
+                    );
+                    return p.random([...inner, ...outer]);
+                })
+            ),
+            push(),
+            wrapSides(connections, 0, 1)
+        );
+        drawLines(lines);
+    };
+
+    const drawLines = (lines: any): void => {
+        for (let [x1, y1, x2, y2] of lines) {
+            p.line(x1, y1, x2, y2);
+        }
     };
 
     p.keyReleased = () => {
