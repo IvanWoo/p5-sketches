@@ -8,7 +8,7 @@ const sketchBarrelPath = pathOf("src/sketches/index.ts");
 const dummySketchPath = pathOf("src/sketch.ts");
 
 const sketchTemplate = `import type p5 from "p5";
-import { range } from "@thi.ng/iterators";
+import { range } from "@thi.ng/transducers";
 
 export const sketch = (p: p5) => {
     const width = 800;
