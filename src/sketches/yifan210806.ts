@@ -47,7 +47,7 @@ export const sketch = (p: p5) => {
     const drawSmallCircles = () => {
         for (let [col, row] of range2d(smallN, smallN)) {
             if ((col + row) % 2 === 1) continue;
-            let dis = bigD - smallD;
+            let dis = (bigD + smallD) / 2;
             let x = col * dis + bigD / 2 + padding;
             let y = row * dis + bigD / 2 + padding;
             p.fill(colorRnd());
