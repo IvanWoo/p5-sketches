@@ -20,3 +20,4 @@ export { sketch as yifan210729 } from "./yifan210729";
 export { sketch as yifan210804 } from "./yifan210804";
 export { sketch as yifan210806 } from "./yifan210806";
 export { sketch as yifan210809 } from "./yifan210809";
+export { sketch as yifan210810 } from "./yifan210810";
