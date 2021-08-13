@@ -64,8 +64,14 @@
         {
             "name": "yifan210810",
             "screenshot": "yifan210810.png",
-            "description": "",
+            "description": "blur the line",
             "reference": "https://twitter.com/takawo/status/1424730296574889984"
+        },
+        {
+            "name": "yifan210812",
+            "screenshot": "yifan210812.png",
+            "description": "blur grid",
+            "reference": ""
         }
     ]
 }
