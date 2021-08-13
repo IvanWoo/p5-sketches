@@ -1,6 +1,7 @@
 const process = require("process");
 const path = require("path");
 const fs = require("fs");
+const dateFormat = require("dateformat");
 
 const pathOf = name => path.join(__dirname, "..", name);
 const sketchPath = name => path.join(pathOf("src/sketches"), name);
@@ -12,11 +13,12 @@ import { range } from "@thi.ng/transducers";
 
 export const sketch = (p: p5) => {
     const width = 800;
-    const height = 600;
+    const height = width;
+    const bgCol = "white";
 
     p.setup = () => {
         p.createCanvas(width, height);
-        p.background("white");
+        p.background(bgCol);
         p.noLoop();
     };
 
@@ -50,12 +52,13 @@ const write = name => {
 };
 
 const main = async () => {
+    let name = process.argv[3];
     if (!process.argv[3]) {
-        console.log("no sketch name!");
-        return;
+        let now = new Date();
+        let dateStr = dateFormat(now, "yymmdd");
+        name = `yifan${dateStr}`;
     }
 
-    const name = process.argv[3];
     if (name.match(/^\d/)) {
         console.log(`invalid name: ${name}`);
         return;
