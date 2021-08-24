@@ -12,18 +12,18 @@ const innerTangents = (
     y2: number,
     r2: number
 ) => {
-    let hypotenuse = dist(x1, y1, x2, y2);
-    let short = r1 + r2;
+    const hypotenuse = dist(x1, y1, x2, y2);
+    const short = r1 + r2;
 
-    let res: Line[] = [];
-    for (let sign of [-1, 1]) {
-        let phi =
+    const res: Line[] = [];
+    for (const sign of [-1, 1]) {
+        const phi =
             Math.atan2(y2 - y1, x2 - x1) +
             sign * (Math.asin(short / hypotenuse) - Math.PI / 2);
-        let t1x = x1 + r1 * Math.cos(phi);
-        let t1y = y1 + r1 * Math.sin(phi);
-        let t2x = x2 + r2 * Math.cos(phi + Math.PI);
-        let t2y = y2 + r2 * Math.sin(phi + Math.PI);
+        const t1x = x1 + r1 * Math.cos(phi);
+        const t1y = y1 + r1 * Math.sin(phi);
+        const t2x = x2 + r2 * Math.cos(phi + Math.PI);
+        const t2y = y2 + r2 * Math.sin(phi + Math.PI);
         res.push([t1x, t1y, t2x, t2y]);
     }
     return res;
@@ -37,17 +37,17 @@ const outerTangents = (
     y2: number,
     r2: number
 ) => {
-    let hypotenuse = dist(x1, y1, x2, y2);
-    let short = r1 - r2;
+    const hypotenuse = dist(x1, y1, x2, y2);
+    const short = r1 - r2;
 
-    let res: Line[] = [];
-    for (let sign of [-1, 1]) {
-        let phi =
+    const res: Line[] = [];
+    for (const sign of [-1, 1]) {
+        const phi =
             Math.atan2(y2 - y1, x2 - x1) + sign * Math.acos(short / hypotenuse);
-        let t1x = x1 + r1 * Math.cos(phi);
-        let t1y = y1 + r1 * Math.sin(phi);
-        let t2x = x2 + r2 * Math.cos(phi);
-        let t2y = y2 + r2 * Math.sin(phi);
+        const t1x = x1 + r1 * Math.cos(phi);
+        const t1y = y1 + r1 * Math.sin(phi);
+        const t2x = x2 + r2 * Math.cos(phi);
+        const t2y = y2 + r2 * Math.sin(phi);
         res.push([t1x, t1y, t2x, t2y]);
     }
     return res;
@@ -66,7 +66,7 @@ export const tangents = (
     y2: number,
     r2: number
 ) => {
-    let inner = innerTangents(x1, y1, r1, x2, y2, r2);
-    let outer = outerTangents(x1, y1, r1, x2, y2, r2);
+    const inner = innerTangents(x1, y1, r1, x2, y2, r2);
+    const outer = outerTangents(x1, y1, r1, x2, y2, r2);
     return { inner, outer };
 };

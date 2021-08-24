@@ -1,4 +1,5 @@
 import type p5 from "p5";
+
 import { range } from "@thi.ng/iterators";
 
 export const sketch = (p: p5) => {
@@ -42,8 +43,8 @@ export const sketch = (p: p5) => {
     p.draw = () => {
         p.stroke(0, 150, 0, 100);
         p.strokeWeight(1);
-        for (let x of range(300, 1000, 300)) {
-            for (let y of range(280, 800, 250)) {
+        for (const x of range(300, 1000, 300)) {
+            for (const y of range(280, 800, 250)) {
                 tree(x, y, p.random(-10, 10), 5);
             }
         }

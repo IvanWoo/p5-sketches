@@ -1,3 +1,5 @@
+import type { Sketch } from "./api";
+
 import { idgen } from "@thi.ng/idgen";
 import { Z3 } from "@thi.ng/strings";
 import { comp, map, multiplexObj, push, transduce } from "@thi.ng/transducers";
@@ -6,7 +8,6 @@ import { writeFileSync } from "fs";
 import { initConfig, CONFIG } from "./config";
 import { thumb } from "./partials/asset";
 import { table } from "./partials/table";
-import type { Sketch } from "./api";
 
 try {
     initConfig("./tools/config.json");

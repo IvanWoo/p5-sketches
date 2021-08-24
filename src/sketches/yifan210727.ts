@@ -1,4 +1,5 @@
 import type p5 from "p5";
+
 import {
     range,
     range2d,
@@ -12,8 +13,8 @@ import {
     multiplexObj,
 } from "@thi.ng/transducers";
 
-import { tangents } from "./utils/geom";
 import { ringers } from "./utils/color";
+import { tangents } from "./utils/geom";
 
 class Peg {
     p: p5;
@@ -62,8 +63,8 @@ export const sketch = (p: p5) => {
     const diameter = unitSpace * 0.6;
     const margin = unitSpace * 0.3;
 
-    let pegs: Peg[] = [];
-    let connections = [2, 3, 7, 11, 15, 12, 9, 8];
+    const pegs: Peg[] = [];
+    const connections = [2, 3, 7, 11, 15, 12, 9, 8];
 
     p.setup = () => {
         p.createCanvas(width, height);
@@ -73,7 +74,7 @@ export const sketch = (p: p5) => {
         p.strokeWeight(6);
         p.textAlign(p.CENTER, p.CENTER);
 
-        let colors = transduce(
+        const colors = transduce(
             comp(
                 map(x =>
                     [2, 3, 5, 8, 11, 12].includes(x)
@@ -87,27 +88,27 @@ export const sketch = (p: p5) => {
             range(rows * cols)
         );
 
-        for (let i of range(rows)) {
-            for (let j of range(cols)) {
-                let idx = i * rows + j;
-                let x = j * unitSpace + padding;
-                let y = i * unitSpace + padding;
-                let color = colors[idx];
+        for (const i of range(rows)) {
+            for (const j of range(cols)) {
+                const idx = i * rows + j;
+                const x = j * unitSpace + padding;
+                const y = i * unitSpace + padding;
+                const color = colors[idx];
                 pegs.push(new Peg(p, idx, x, y, diameter, color));
             }
         }
     };
 
     p.draw = () => {
-        for (let peg of pegs) {
+        for (const peg of pegs) {
             peg.draw();
         }
-        let lines = transduce(
+        const lines = transduce(
             comp(
                 map(x => pegs[x]),
                 partition(2, 1),
                 map(([p1, p2]) => {
-                    let { inner, outer } = tangents(
+                    const { inner, outer } = tangents(
                         p1.x,
                         p1.y,
                         p1.r,
@@ -125,7 +126,7 @@ export const sketch = (p: p5) => {
     };
 
     const drawLines = (lines: any): void => {
-        for (let [x1, y1, x2, y2] of lines) {
+        for (const [x1, y1, x2, y2] of lines) {
             p.line(x1, y1, x2, y2);
         }
     };

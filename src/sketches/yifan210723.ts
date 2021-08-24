@@ -1,6 +1,8 @@
 import type p5 from "p5";
-import { cycle } from "@thi.ng/iterators";
+
 import { spiral2d } from "@thi.ng/grid-iterators";
+import { cycle } from "@thi.ng/iterators";
+
 import { colorhunt } from "./utils/color";
 
 export const sketch = (p: p5) => {
@@ -25,8 +27,8 @@ export const sketch = (p: p5) => {
         let [x, y] = <number[]>b.value;
         x *= baseUnit;
         y *= baseUnit;
-        let color = colors.next();
-        let col = p.color(color.value as string);
+        const color = colors.next();
+        const col = p.color(color.value as string);
         // col.setAlpha(p.random(100, 150));
         p.fill(col);
         p.rect(

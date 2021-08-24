@@ -1,6 +1,7 @@
 import type p5 from "p5";
-import { range } from "@thi.ng/transducers";
+
 import { uniform, weightedRandom } from "@thi.ng/random";
+import { range } from "@thi.ng/transducers";
 
 import { ringers } from "./utils/color";
 
@@ -32,13 +33,13 @@ export const sketch = (p: p5) => {
     const drawPattern = (x, y, d) => {
         if (d <= width * 0.005) return;
 
-        let col = p.color(colorRnd());
+        const col = p.color(colorRnd());
         // col.setAlpha(180);
 
         p.fill(col);
         p.circle(x, y, d);
 
-        for (let [pathX, pathY, newD] of arcPos(
+        for (const [pathX, pathY, newD] of arcPos(
             x,
             y,
             d / 2 + d * sweetSpot,
@@ -49,15 +50,15 @@ export const sketch = (p: p5) => {
     };
 
     function* arcPos(x, y, distance, d) {
-        let rnd = uniform();
-        let start = rnd();
-        let end = start + rnd();
-        let TWO_PI = 2 * Math.PI;
-        let step = (d / 10) * (d <= width * 0.06 ? 0.13 : 0.009);
+        const rnd = uniform();
+        const start = rnd();
+        const end = start + rnd();
+        const TWO_PI = 2 * Math.PI;
+        const step = (d / 10) * (d <= width * 0.06 ? 0.13 : 0.009);
         for (let angle of range(start, end, step)) {
             angle = TWO_PI * (1 - angle);
-            let pathX = x + Math.cos(angle) * distance;
-            let pathY = y + Math.sin(angle) * distance;
+            const pathX = x + Math.cos(angle) * distance;
+            const pathY = y + Math.sin(angle) * distance;
             yield [pathX, pathY, d];
         }
     }

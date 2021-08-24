@@ -1,4 +1,5 @@
 import type p5 from "p5";
+
 import { range } from "@thi.ng/iterators";
 
 export const sketch = (p: p5) => {
@@ -17,23 +18,23 @@ export const sketch = (p: p5) => {
         p.background("white");
         p.noStroke();
 
-        let seg = 13;
-        let w = Math.min(height, width) / seg;
-        for (let i of range(seg)) {
-            for (let j of range(seg)) {
-                let x = i * w + w / 2;
-                let y = j * w + w / 2;
+        const seg = 13;
+        const w = Math.min(height, width) / seg;
+        for (const i of range(seg)) {
+            for (const j of range(seg)) {
+                const x = i * w + w / 2;
+                const y = j * w + w / 2;
 
                 // shift trick
                 if ((i + j) % 2 !== 0) {
                     continue;
                 }
 
-                let hue1 = p.random(360);
+                const hue1 = p.random(360);
                 p.fill(hue1, 100, 100);
                 p.ellipse(x, y, w * 0.9);
 
-                let hue2 = (hue1 + 180) % 360;
+                const hue2 = (hue1 + 180) % 360;
                 p.fill(hue2, 100, 100);
                 p.ellipse(x, y, w * 0.6);
             }

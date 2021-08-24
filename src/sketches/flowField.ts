@@ -29,7 +29,7 @@ export const sketch = (p: p5) => {
         p.noStroke();
         p.fill(255);
 
-        for (let point of points) {
+        for (const point of points) {
             const r = p.map(point.x, 0, width, 50, 255);
             const g = p.map(point.y, 0, height, 50, 255);
             const b = p.map(point.x, 0, width, 255, 50);

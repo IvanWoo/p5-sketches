@@ -1,4 +1,5 @@
 import type { BaseConfig, Config } from "./api";
+
 import { readJSON } from "./io";
 
 export let CONFIG: Config;

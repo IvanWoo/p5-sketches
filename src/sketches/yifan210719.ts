@@ -6,7 +6,7 @@ export const sketch = (p: p5) => {
     const centerX = width / 2;
     const centerY = height / 2;
     const constrainR = (width * 0.9) / 2;
-    let speed = 0.001;
+    const speed = 0.001;
     let magicKnob = 4.2;
     magicKnob = 8.21;
     // magicKnob = 3;
@@ -41,11 +41,11 @@ export const sketch = (p: p5) => {
         p.noStroke();
         p.circle(x, y, d);
         if (d > 30) {
-            let leftBoundary = Math.abs(x - d / 2);
-            let rightBoundary = Math.abs(x + d / 2);
-            let newX = clamp(-d, d, x + magicKnob * p.sin(x + centerX));
-            let min = Math.min(leftBoundary, rightBoundary);
-            let newR = Math.min(min, (d - 10) / 2);
+            const leftBoundary = Math.abs(x - d / 2);
+            const rightBoundary = Math.abs(x + d / 2);
+            const newX = clamp(-d, d, x + magicKnob * p.sin(x + centerX));
+            const min = Math.min(leftBoundary, rightBoundary);
+            const newR = Math.min(min, (d - 10) / 2);
             drawCircle(newX, y, newR * 2, !isBlack);
         }
     };

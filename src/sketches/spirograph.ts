@@ -1,4 +1,5 @@
 import type p5 from "p5";
+
 import { range } from "@thi.ng/iterators";
 
 // https://openprocessing.org/sketch/474017
@@ -23,19 +24,19 @@ export const sketch = (p: p5) => {
         const radius = 180;
         const step = 0.1;
 
-        for (let angle of range(0, 360, step)) {
-            for (let t of range(0, 100, 1)) {
-                let x1 = radius * p.cos(angle + 0.1 * t);
-                let y1 = radius * p.sin(angle + 0.1 * t);
+        for (const angle of range(0, 360, step)) {
+            for (const t of range(0, 100, 1)) {
+                const x1 = radius * p.cos(angle + 0.1 * t);
+                const y1 = radius * p.sin(angle + 0.1 * t);
 
-                let x2 = (radius / 3) * p.cos(5 * 3 * (angle + 0.2 * t));
-                let y2 = (radius / 3) * p.sin(5 * 3 * (angle + 0.2 * t));
+                const x2 = (radius / 3) * p.cos(5 * 3 * (angle + 0.2 * t));
+                const y2 = (radius / 3) * p.sin(5 * 3 * (angle + 0.2 * t));
 
-                let x3 = (radius / 6) * p.cos(5 * 4 * (angle + 0.3 * t));
-                let y3 = (radius / 6) * p.sin(5 * 4 * (angle + 0.3 * t));
+                const x3 = (radius / 6) * p.cos(5 * 4 * (angle + 0.3 * t));
+                const y3 = (radius / 6) * p.sin(5 * 4 * (angle + 0.3 * t));
 
-                let x = x1 + x2 + x3;
-                let y = y1 + y2 + y3;
+                const x = x1 + x2 + x3;
+                const y = y1 + y2 + y3;
 
                 p.ellipse(400 + x, 300 - y, 2);
             }

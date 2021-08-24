@@ -1,7 +1,7 @@
+import type { TwoCircles } from "./utils/api";
 import type p5 from "p5";
 
 import { tangents } from "./utils/geom";
-import type { TwoCircles } from "./utils/api";
 
 export const sketch = (p: p5) => {
     const width = 800;
@@ -30,11 +30,11 @@ export const sketch = (p: p5) => {
 
     p.draw = () => {
         p.background("white");
-        let test = tests[counter];
-        let [x1, y1, r1, x2, y2, r2] = test;
+        const test = tests[counter];
+        const [x1, y1, r1, x2, y2, r2] = test;
         p.circle(x1, y1, r1 * 2);
         p.circle(x2, y2, r2 * 2);
-        let { inner, outer } = tangents(x1, y1, r1, x2, y2, r2);
+        const { inner, outer } = tangents(x1, y1, r1, x2, y2, r2);
         drawLines(inner);
         drawLines(outer);
         counter += 1;
@@ -46,7 +46,7 @@ export const sketch = (p: p5) => {
     };
 
     const drawLines = (lines: any) => {
-        for (let [x1, y1, x2, y2] of lines) {
+        for (const [x1, y1, x2, y2] of lines) {
             p.line(x1, y1, x2, y2);
         }
     };

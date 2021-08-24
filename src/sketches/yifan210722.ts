@@ -1,4 +1,5 @@
 import type p5 from "p5";
+
 import { range } from "@thi.ng/iterators";
 
 import FONT from "../assets/NotoSansJP-Black.otf";
@@ -30,7 +31,7 @@ export const sketch = (p: p5) => {
     p.draw = () => {
         if (counter >= steps) return;
         // p.background("white");
-        let points = font.textToPoints(
+        const points = font.textToPoints(
             txt,
             width / 8,
             (height * 4.5) / 8,
@@ -49,9 +50,9 @@ export const sketch = (p: p5) => {
     };
 
     const drawChar = points => {
-        for (let i of range(points.length - 1)) {
-            let p1 = points[i];
-            let p2 = points[i + 1];
+        for (const i of range(points.length - 1)) {
+            const p1 = points[i];
+            const p2 = points[i + 1];
             p.circle(
                 p1.x + p.random(p2.x * 0.01),
                 p2.y + p.random(p2.y * 0.01),

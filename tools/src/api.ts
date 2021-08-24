@@ -5,7 +5,7 @@ export interface BaseConfig {
     sketches: Sketch[];
 }
 
-export interface Config extends BaseConfig {}
+export type Config = BaseConfig
 
 export interface Sketch extends IObjectOf<string> {
     name: string;

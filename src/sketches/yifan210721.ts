@@ -1,4 +1,5 @@
 import type p5 from "p5";
+
 import { range } from "@thi.ng/iterators";
 import { normal, SYSTEM } from "@thi.ng/random";
 
@@ -51,15 +52,15 @@ export const sketch = (p: p5) => {
             // green ring
             [diameter / 2, diameter / 4],
         ];
-        for (let idx of range(relativePos.length)) {
-            let [x, y] = relativePos[idx];
+        for (const idx of range(relativePos.length)) {
+            const [x, y] = relativePos[idx];
             setStrokeColor(idx);
             drawCircle(x, y, diameter);
         }
     };
 
     const setStrokeColor = (idx: number) => {
-        let col = p.color(colors[idx % colors.length]);
+        const col = p.color(colors[idx % colors.length]);
         col.setAlpha(p.random(50, 70));
         p.stroke(col);
     };
@@ -73,12 +74,12 @@ export const sketch = (p: p5) => {
     };
 
     const shadeCircle = (x: number, y: number, d: number) => {
-        let r = d * 0.5;
-        let c = p.int(d * baseDotNum);
-        let rnd = normal(SYSTEM, 0, normalSigma);
-        for (let _ of range(c)) {
-            let ang = p.random(p.TAU);
-            let rad = p.random(config) * Math.abs(rnd()) + 1;
+        const r = d * 0.5;
+        const c = p.int(d * baseDotNum);
+        const rnd = normal(SYSTEM, 0, normalSigma);
+        for (const _ of range(c)) {
+            const ang = p.random(p.TAU);
+            const rad = p.random(config) * Math.abs(rnd()) + 1;
             p.point(x + p.cos(ang) * r * rad, y + p.sin(ang) * r * rad);
         }
     };

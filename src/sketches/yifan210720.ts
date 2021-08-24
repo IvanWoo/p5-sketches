@@ -1,4 +1,5 @@
 import type p5 from "p5";
+
 import { range } from "@thi.ng/iterators";
 
 export const sketch = (p: p5) => {
@@ -25,7 +26,7 @@ export const sketch = (p: p5) => {
     p.draw = () => {
         p.translate(centerX, centerY);
         p.rotate(p.random() >= 0.5 ? 180 : 90);
-        let drawPatternFuncs = [drawPattern1, drawPattern2, drawPattern3];
+        const drawPatternFuncs = [drawPattern1, drawPattern2, drawPattern3];
         p.random(drawPatternFuncs)();
     };
 
@@ -51,16 +52,16 @@ export const sketch = (p: p5) => {
     };
 
     const drawCircles = (x, y, d, steps) => {
-        for (let i of range(steps)) {
+        for (const i of range(steps)) {
             p.fill(i % 2 === 0 ? black : white);
             p.circle(x, y, d - (i * d) / steps);
         }
     };
 
     const drawRects = (x, y, w, h, steps, isVertical) => {
-        let newW = w / steps;
-        let newH = h / steps;
-        for (let i of range(steps - 1)) {
+        const newW = w / steps;
+        const newH = h / steps;
+        for (const i of range(steps - 1)) {
             p.fill(i % 2 === 0 ? black : white);
             isVertical
                 ? p.rect(x + newW * i, y, newW, h)

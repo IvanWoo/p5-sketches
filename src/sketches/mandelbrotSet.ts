@@ -1,4 +1,5 @@
 import type p5 from "p5";
+
 import { range } from "@thi.ng/iterators";
 
 class ComplexNumber {
@@ -30,15 +31,15 @@ export const sketch = (p: p5) => {
     };
 
     p.draw = () => {
-        for (let x of range(width)) {
-            for (let y of range(height)) {
-                let a = p.map(x, 0, 599, -1.5, -0.5);
-                let b = p.map(y, 0, 599, -0.5, 0.5);
-                let c = new ComplexNumber(a, b);
+        for (const x of range(width)) {
+            for (const y of range(height)) {
+                const a = p.map(x, 0, 599, -1.5, -0.5);
+                const b = p.map(y, 0, 599, -0.5, 0.5);
+                const c = new ComplexNumber(a, b);
                 let z = new ComplexNumber(0, 0);
 
                 let iteration = 0;
-                for (let i of range(50)) {
+                for (const i of range(50)) {
                     if (p.dist(0, 0, z.real, z.imag) >= 2) {
                         break;
                     }
@@ -48,9 +49,9 @@ export const sketch = (p: p5) => {
                 if (iteration === 49) {
                     p.stroke(0, 0, 0);
                 } else {
-                    let fraction = Math.tanh(iteration / 20);
-                    let col1 = p.color(0, 0, 50);
-                    let col2 = p.color(255, 255, 255);
+                    const fraction = Math.tanh(iteration / 20);
+                    const col1 = p.color(0, 0, 50);
+                    const col2 = p.color(255, 255, 255);
                     p.stroke(p.lerpColor(col1, col2, fraction));
                 }
                 p.point(x, y);

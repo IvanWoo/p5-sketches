@@ -1,4 +1,5 @@
 import { expect } from "chai";
+
 import { tangents } from "./geom";
 
 describe("tangents", () => {
@@ -89,7 +90,7 @@ describe("tangents", () => {
 
     tests.forEach(({ args, expected }) => {
         it("basics", () => {
-            let [x1, y1, r1, x2, y2, r2] = args;
+            const [x1, y1, r1, x2, y2, r2] = args;
             expect(tangents(x1, y1, r1, x2, y2, r2)).to.eql(expected);
         });
     });

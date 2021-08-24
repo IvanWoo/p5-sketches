@@ -1,4 +1,5 @@
 import type p5 from "p5";
+
 import { range } from "@thi.ng/iterators";
 
 // https://editor.p5js.org/generative-design/sketches/P_2_1_1_01
@@ -20,11 +21,11 @@ export const sketch = (p: p5) => {
         p.fill("black");
         p.strokeCap(actStrokeCap);
         p.randomSeed(actRandomSeed);
-        for (let i of range(tileCount)) {
-            for (let j of range(tileCount)) {
-                let x = width * (i / tileCount);
-                let y = height * (j / tileCount);
-                let toggle = p.int(p.random(0, 2));
+        for (const i of range(tileCount)) {
+            for (const j of range(tileCount)) {
+                const x = width * (i / tileCount);
+                const y = height * (j / tileCount);
+                const toggle = p.int(p.random(0, 2));
                 if (toggle === 0) {
                     p.strokeWeight(p.mouseX / 30);
                     p.line(x, y, x + width / tileCount, y + height / tileCount);

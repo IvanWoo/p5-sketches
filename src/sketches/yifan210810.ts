@@ -1,6 +1,7 @@
 import type p5 from "p5";
-import { range, range2d } from "@thi.ng/transducers";
+
 import { normal, SYSTEM, uniform } from "@thi.ng/random";
+import { range, range2d } from "@thi.ng/transducers";
 
 import { ringers } from "./utils/color";
 
@@ -26,12 +27,12 @@ export const sketch = (p: p5) => {
     };
 
     function rectRec(x, y, w, minSize) {
-        let cRnd = uniform(SYSTEM, 2, 4);
-        let c = Math.round(cRnd());
-        let newW = w / c;
-        for (let [j, i] of range2d(c, c)) {
-            let newX = x + i * newW;
-            let newY = y + j * newW;
+        const cRnd = uniform(SYSTEM, 2, 4);
+        const c = Math.round(cRnd());
+        const newW = w / c;
+        for (const [j, i] of range2d(c, c)) {
+            const newX = x + i * newW;
+            const newY = y + j * newW;
             if (newW > minSize && uniformRnd() < 0.6) {
                 rectRec(newX, newY, newW, minSize);
             } else {
@@ -50,21 +51,21 @@ export const sketch = (p: p5) => {
     }
 
     function drawShades(x1, x2, y1, y2) {
-        let direction = uniformRnd();
-        let step = 0.01;
-        let rnd = normal(SYSTEM, 0, normalSigma);
+        const direction = uniformRnd();
+        const step = 0.01;
+        const rnd = normal(SYSTEM, 0, normalSigma);
         if (uniformRnd() >= 0.5) {
             // vertically
-            for (let x of range(x1, x2, step)) {
-                let dis = Math.abs(rnd()) * (y2 - y1);
-                let y = direction >= 0.5 ? y2 - dis : y1 + dis;
+            for (const x of range(x1, x2, step)) {
+                const dis = Math.abs(rnd()) * (y2 - y1);
+                const y = direction >= 0.5 ? y2 - dis : y1 + dis;
                 p.point(x, y);
             }
         } else {
             // horizontally
-            for (let y of range(y1, y2, step)) {
-                let dis = Math.abs(rnd()) * (x2 - x1);
-                let x = direction >= 0.5 ? x2 - dis : x1 + dis;
+            for (const y of range(y1, y2, step)) {
+                const dis = Math.abs(rnd()) * (x2 - x1);
+                const x = direction >= 0.5 ? x2 - dis : x1 + dis;
                 p.point(x, y);
             }
         }

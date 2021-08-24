@@ -1,5 +1,7 @@
 import type p5 from "p5";
+
 import { range } from "@thi.ng/transducers";
+
 import { ringers } from "./utils/color";
 
 export const sketch = (p: p5) => {
@@ -29,18 +31,18 @@ export const sketch = (p: p5) => {
         // p.noStroke();
         p.fill(mainColor);
         let [x, y] = [centerX, 0];
-        for (let i of range(num)) {
+        for (const i of range(num)) {
             y = i * (h + s);
-            let w = p.random(0.2, 0.6) * width;
+            const w = p.random(0.2, 0.6) * width;
             // w = 0.32 * width;
             // w = p.sin(p.map(i, 0, num, 0, 1)) * width;
             if (i % 2 !== 0) x -= w;
             p.rect(x, y, w, h);
             if (i % 2 === 0) x += w;
 
-            let angle = (i % 2) * p.PI + p.HALF_PI;
-            let start = -angle;
-            let end = angle;
+            const angle = (i % 2) * p.PI + p.HALF_PI;
+            const start = -angle;
+            const end = angle;
             drawConnectArc(x, y, start, end);
         }
     };

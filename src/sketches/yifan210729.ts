@@ -1,4 +1,5 @@
 import type p5 from "p5";
+
 import {
     normRange,
     range,
@@ -38,11 +39,11 @@ export const sketch = (p: p5) => {
     };
 
     const drawCircle = (numP, nm, sm, fcm, color) => {
-        let points = transduce(
+        const points = transduce(
             comp(
                 map(i => i * Math.PI * 2),
                 mapIndexed((i, rad) => {
-                    let r =
+                    const r =
                         height * 0.3 +
                         p.noise(p.frameCount / nm + i) * height * 0.1 +
                         p.sin(p.frameCount / sm + i) * height * 0.05;
@@ -54,12 +55,12 @@ export const sketch = (p: p5) => {
         );
         p.push();
         // let t = p.map(p.mouseX, 0, width, -5, 5);
-        let t = 0;
+        const t = 0;
         p.curveTightness(t);
         p.rotate(p.frameCount / fcm);
         p.fill(color);
         p.beginShape();
-        for (let [x, y] of points) {
+        for (const [x, y] of points) {
             p.curveVertex(x, y);
         }
         p.endShape();

@@ -1,4 +1,5 @@
 import type p5 from "p5";
+
 import { range } from "@thi.ng/iterators";
 import { weightedRandom } from "@thi.ng/random";
 
@@ -39,9 +40,9 @@ export const sketch = (p: p5) => {
     const height = rows * unitH + 2 * marginY;
 
     const drawTriangle = (x: number, y: number, w: number, h: number) => {
-        let centerX = x + w / 2;
-        let centerY = y + h / 2;
-        let c = p.int(p.random(4));
+        const centerX = x + w / 2;
+        const centerY = y + h / 2;
+        const c = p.int(p.random(4));
         p.beginShape();
         if (c !== 0) p.vertex(centerX - w / 2, centerY - h / 2);
         if (c !== 1) p.vertex(centerX + w / 2, centerY - h / 2);
@@ -51,72 +52,72 @@ export const sketch = (p: p5) => {
     };
 
     const drawRect = (x: number, y: number, w: number, h: number) => {
-        let paddingW = p.random(0.05, 0.45) * w;
-        let paddingH = p.random(0.05, 0.45) * h;
-        let newX = x + paddingW;
-        let newY = y + paddingH;
-        let newW = w - 2 * paddingW;
-        let newH = h - 2 * paddingH;
+        const paddingW = p.random(0.05, 0.45) * w;
+        const paddingH = p.random(0.05, 0.45) * h;
+        const newX = x + paddingW;
+        const newY = y + paddingH;
+        const newW = w - 2 * paddingW;
+        const newH = h - 2 * paddingH;
         p.rect(newX, newY, newW, newH);
     };
 
     const drawCircle = (x: number, y: number, w: number, h: number) => {
-        let constrain = Math.min(w, h);
-        let d = constrain * p.random(0.4, 0.9);
+        const constrain = Math.min(w, h);
+        const d = constrain * p.random(0.4, 0.9);
 
-        let room = (constrain - d) / 2;
-        let shiftX = p.random(-1, 1) * room;
-        let shiftY = p.random(-1, 1) * room;
+        const room = (constrain - d) / 2;
+        const shiftX = p.random(-1, 1) * room;
+        const shiftY = p.random(-1, 1) * room;
 
-        let centerX = x + w / 2;
-        let centerY = y + h / 2;
-        let newX = centerX + shiftX;
-        let newY = centerY + shiftY;
+        const centerX = x + w / 2;
+        const centerY = y + h / 2;
+        const newX = centerX + shiftX;
+        const newY = centerY + shiftY;
         p.circle(newX, newY, d);
     };
 
     const drawRectTile = (x: number, y: number, w: number, h: number) => {
-        let rw = p.int(p.random(3, 7));
+        const rw = p.int(p.random(3, 7));
         // rw / h = cl / w
-        let cl = p.int((w * rw) / h);
-        let newH = h / rw;
-        let newW = w / cl;
-        for (let i of range(rw)) {
-            for (let j of range(cl)) {
+        const cl = p.int((w * rw) / h);
+        const newH = h / rw;
+        const newW = w / cl;
+        for (const i of range(rw)) {
+            for (const j of range(cl)) {
                 if ((i + j) % 2 !== 0) continue;
 
-                let newX = x + newW * j;
-                let newY = y + newH * i;
+                const newX = x + newW * j;
+                const newY = y + newH * i;
                 p.rect(newX, newY, newW, newH);
             }
         }
     };
 
     const drawCircleTile = (x: number, y: number, w: number, h: number) => {
-        let rw = p.int(p.random(3, 7));
+        const rw = p.int(p.random(3, 7));
         // rw / h = cl / w
-        let cl = p.int((w * rw) / h);
-        let newH = h / rw;
-        let newW = w / cl;
-        for (let i of range(rw)) {
-            for (let j of range(cl)) {
-                let newX = x + newW * j + newW / 2;
-                let newY = y + newH * i + newH / 2;
-                let d = Math.min(newW, newH) * 0.5;
+        const cl = p.int((w * rw) / h);
+        const newH = h / rw;
+        const newW = w / cl;
+        for (const i of range(rw)) {
+            for (const j of range(cl)) {
+                const newX = x + newW * j + newW / 2;
+                const newY = y + newH * i + newH / 2;
+                const d = Math.min(newW, newH) * 0.5;
                 p.circle(newX, newY, d);
             }
         }
     };
 
     const drawPattern = (x: number, y: number, w: number, h: number) => {
-        let color1 = p.random(colorPalette);
+        const color1 = p.random(colorPalette);
         p.fill(color1);
         p.rect(x, y, w, h);
 
-        let color2 = p.random(colorPalette);
+        const color2 = p.random(colorPalette);
         p.fill(color2);
 
-        let drawFuncs = [
+        const drawFuncs = [
             drawTriangle,
             drawCircle,
             drawCircleTile,
@@ -124,7 +125,7 @@ export const sketch = (p: p5) => {
             drawRectTile,
         ];
 
-        let drawFunc: (x: number, y: number, w: number, h: number) => void =
+        const drawFunc: (x: number, y: number, w: number, h: number) => void =
             p.random(drawFuncs);
         drawFunc(x, y, w, h);
     };
@@ -142,13 +143,13 @@ export const sketch = (p: p5) => {
         const weights = scales.map(x => 1 / x);
         const scaleRnd = weightedRandom(scales, weights);
 
-        for (let row of range(rows)) {
+        for (const row of range(rows)) {
             // let shiftX = p.random(scales) * h;
-            let shiftX = scaleRnd() * h;
+            const shiftX = scaleRnd() * h;
             let x = marginX + shiftX;
-            let y = marginY + row * h;
+            const y = marginY + row * h;
             while (true) {
-                let w = scaleRnd() * h;
+                const w = scaleRnd() * h;
                 if (x + w > width - marginX) break;
                 drawPattern(x, y, w, h);
                 x += w;

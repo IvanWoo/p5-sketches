@@ -1,4 +1,5 @@
 import type { IObjectOf, Keys } from "@thi.ng/api";
+
 import { juxt } from "@thi.ng/compose";
 import { repeat } from "@thi.ng/strings";
 import { Border, tableCanvas, toString } from "@thi.ng/text-canvas";
