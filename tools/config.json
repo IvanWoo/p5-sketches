@@ -72,6 +72,12 @@
             "screenshot": "yifan210812.png",
             "description": "blur grid",
             "reference": ""
+        },
+        {
+            "name": "yifan210905",
+            "screenshot": "yifan210905.png",
+            "description": "dice",
+            "reference": ""
         }
     ]
 }
