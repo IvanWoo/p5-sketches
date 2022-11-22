@@ -10,7 +10,7 @@ const dummySketchPath = pathOf("src/sketch.ts");
 
 const sketchTemplate = `import type p5 from "p5";
 
-import { range } from "@thi.ng/transducers";
+import * as tx from "@thi.ng/transducers";
 
 export const sketch = (p: p5) => {
     const width = 800;
