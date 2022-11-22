@@ -2,6 +2,18 @@
     "assetURL": ".",
     "sketches": [
         {
+            "name": "okazz210701a",
+            "screenshot": "okazz210701a.png",
+            "description": "recreate of okazz210701a",
+            "reference": "https://openprocessing.org/sketch/1227171"
+        },
+        {
+            "name": "okazz210715",
+            "screenshot": "okazz210715.png",
+            "description": "recreate of okazz210715",
+            "reference": "https://openprocessing.org/sketch/1233942"
+        },
+        {
             "name": "yifan210719",
             "screenshot": "yifan210719.png",
             "description": "recreate of Marina Apollonio: rotating dizzy semi-3d widget",

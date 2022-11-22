@@ -55,6 +55,10 @@ export const sketch = (p: p5) => {
         }
     };
 
+    p.keyReleased = () => {
+        if (p.key === "s") p.saveCanvas("sketchScreenshot", "png");
+    };
+
     const divideHorizontal = (x: number, y: number, w: number, h: number) => {
         const newW = p.random(divideRatios) * w;
         divideRect(x, y, newW, h);

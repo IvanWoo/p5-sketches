@@ -44,7 +44,7 @@ ${table(
 `;
 
     writeFileSync("./README-SKETCHES.md", BODY);
-} catch (e) {
+} catch (e: any) {
     console.log(e.message);
     process.exit(1);
 }

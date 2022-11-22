@@ -156,4 +156,8 @@ export const sketch = (p: p5) => {
             }
         }
     };
+
+    p.keyReleased = () => {
+        if (p.key === "s") p.saveCanvas("sketchScreenshot", "png");
+    };
 };
