@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "test": "web-test-runner \"src/**/*.test.ts\"",
     "lint": "eslint . --quiet --fix --ext .ts && prettier --write src/**/*.ts",
-    "new": "ts-node -P tools/tsconfig.json ./scripts/new.ts",
+    "new": "ts-node -P tools/tsconfig.json tools/src/new-sketch.ts",
     "doc:sketches": "ts-node -P tools/tsconfig.json tools/src/readme-sketches.ts",
     "asset:optimize": "open -a ImageOptim ./assets/"
   },

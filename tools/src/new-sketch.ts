@@ -1,13 +1,8 @@
 import dateFormat from "dateformat";
 import * as fs from "fs";
-import * as path from "path";
 import * as process from "process";
 
-const pathOf = (name: string): string => path.join(__dirname, "..", name);
-const sketchPath = (name: string): string =>
-    path.join(pathOf("src/sketches"), name);
-const sketchBarrelPath = pathOf("src/sketches/index.ts");
-const dummySketchPath = pathOf("src/sketch.ts");
+import { DUMMY_SKETCH_FILE, SKETCH_BARREL_FILE, sketchPath } from "./io";
 
 const sketchTemplate = `import type p5 from "p5";
 
@@ -40,15 +35,15 @@ const write = (name: string): void => {
     console.log(`created new sketch at: ${newSketchPath}`);
     fs.writeFileSync(newSketchPath, sketchTemplate);
 
-    console.log(`updated barrel at: ${sketchBarrelPath}`);
+    console.log(`updated barrel at: ${SKETCH_BARREL_FILE}`);
     fs.appendFileSync(
-        sketchBarrelPath,
+        SKETCH_BARREL_FILE,
         `export { sketch as ${name} } from "./${name}";\n`
     );
 
-    console.log(`set the working sketch at: ${dummySketchPath}`);
+    console.log(`set the working sketch at: ${DUMMY_SKETCH_FILE}`);
     fs.writeFileSync(
-        dummySketchPath,
+        DUMMY_SKETCH_FILE,
         `export { ${name} as sketch } from "./sketches";\n`
     );
 };
