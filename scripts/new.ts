@@ -1,10 +1,11 @@
-const process = require("process");
-const path = require("path");
-const fs = require("fs");
-const dateFormat = require("dateformat");
+import dateFormat from "dateformat";
+import * as fs from "fs";
+import * as path from "path";
+import * as process from "process";
 
-const pathOf = name => path.join(__dirname, "..", name);
-const sketchPath = name => path.join(pathOf("src/sketches"), name);
+const pathOf = (name: string): string => path.join(__dirname, "..", name);
+const sketchPath = (name: string): string =>
+    path.join(pathOf("src/sketches"), name);
 const sketchBarrelPath = pathOf("src/sketches/index.ts");
 const dummySketchPath = pathOf("src/sketch.ts");
 
@@ -34,7 +35,7 @@ export const sketch = (p: p5) => {
 
 `;
 
-const write = name => {
+const write = (name: string): void => {
     const newSketchPath = sketchPath(`${name}.ts`);
     console.log(`created new sketch at: ${newSketchPath}`);
     fs.writeFileSync(newSketchPath, sketchTemplate);
@@ -52,11 +53,11 @@ const write = name => {
     );
 };
 
-const main = async () => {
-    let name = process.argv[3];
-    if (!process.argv[3]) {
-        let now = new Date();
-        let dateStr = dateFormat(now, "yymmdd");
+const main = async (): Promise<void> => {
+    let name = process.argv[2];
+    if (!name) {
+        const now = new Date();
+        const dateStr = dateFormat(now, "yymmdd");
         name = `yifan${dateStr}`;
     }
 
