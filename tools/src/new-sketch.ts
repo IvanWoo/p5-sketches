@@ -2,6 +2,7 @@ import dateFormat from "dateformat";
 import * as fs from "fs";
 import * as process from "process";
 
+import { getAllSketches } from "./db";
 import { DUMMY_SKETCH_FILE, SKETCH_BARREL_FILE, sketchPath } from "./io";
 
 const sketchTemplate = `import type p5 from "p5";
@@ -57,7 +58,11 @@ const main = async (): Promise<void> => {
     }
 
     if (name.match(/^\d/)) {
-        console.log(`invalid name: ${name}`);
+        console.error(`invalid name: ${name}`);
+        return;
+    }
+    if (getAllSketches().includes(name)) {
+        console.error(`duplicate name: ${name}`);
         return;
     }
     write(name);
