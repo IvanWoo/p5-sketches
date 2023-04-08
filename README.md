@@ -18,3 +18,9 @@ yarn start
 ```sh
 yarn new <sketchName>
 ```
+
+### set current working sketch
+
+```sh
+yarn set <sketchName>
+```
