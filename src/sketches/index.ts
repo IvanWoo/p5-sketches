@@ -26,3 +26,4 @@ export { sketch as yifan210905 } from "./yifan210905";
 export { sketch as yifan221121 } from "./yifan221121";
 export { sketch as yifan230407 } from "./yifan230407";
 export { sketch as yifan230409 } from "./yifan230409";
+export { sketch as yifan230820 } from "./yifan230820";
